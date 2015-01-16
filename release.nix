@@ -21,4 +21,8 @@ in project "diff3" <diff3> {}
 // project "libsystemd-journal" <libsystemd-journal> {}
 // project "network-carbon" <network-carbon> {}
 // project "pipes-postgresql-simple" <pipes-postgresql-simple> {}
+// project "snap-cors" <snap-cors> {}
+// project "snap-error-collector" <snap-error-collector> {}
+// project "tasty-ant-xml" <tasty-ant-xml> {}
+// project "tasty-rerun" <tasty-rerun> {}
 // project "socket-io" <engine-io/socket-io> {}
