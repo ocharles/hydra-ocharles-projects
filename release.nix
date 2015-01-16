@@ -10,6 +10,7 @@ let
       engine-io-snap = self.callPackage <engine-io/engine-io-snap> {};
       exhaustive = self.callPackage <exhaustive> {};
       json-assertions = self.callPackage <json-assertions> {};
+      libsystemd-journal = self.callPackage <libsystemd-journal> {};
       socket-io = self.callPackage <engine-io/socket-io> {};
     };
   };
@@ -23,6 +24,7 @@ in {
     engine-io-snap
     exhaustive
     json-assertions
+    libsystemd-journal
     socket-io
     ;
 }
