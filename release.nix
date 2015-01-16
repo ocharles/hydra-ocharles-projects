@@ -1,30 +1,23 @@
 with (import <nixpkgs> {}).pkgs;
 let
-  haskell = haskellngPackages.override {
-    overrides = self: super: {
-      diff3 = self.callPackage <diff3> {};
-      digestive-functors-aeson = self.callPackage <digestive-functors-aeson> {};
-      ekg-bosun = self.callPackage <ekg-bosun> {};
-      ekg-carbon = self.callPackage <ekg-carbon> {};
-      engine-io = self.callPackage <engine-io/engine-io> {};
-      engine-io-snap = self.callPackage <engine-io/engine-io-snap> {};
-      exhaustive = self.callPackage <exhaustive> {};
-      json-assertions = self.callPackage <json-assertions> {};
-      libsystemd-journal = self.callPackage <libsystemd-journal> {};
-      socket-io = self.callPackage <engine-io/socket-io> {};
-    };
+  # The idea here is that every project gets built against the stock `nixpkgs`
+  # tree. I think this is better than having a single override, as it much
+  # more accurately reflects what a typical `cabal install` will look like.
+  project = attr: path: args: {
+    ${attr} = (haskellngPackages.override {
+      overrides = self: super: {
+        ${attr} = self.callPackage path args;
+      };
+    }).${attr};
   };
-in {
-  inherit (haskell)
-    diff3
-    digestive-functors-aeson
-    ekg-bosun
-    ekg-carbon
-    engine-io
-    engine-io-snap
-    exhaustive
-    json-assertions
-    libsystemd-journal
-    socket-io
-    ;
-}
+in project "diff3" <diff3> {}
+// project "digestive-functors-aeson" <digestive-functors-aeson> {}
+// project "ekg-bosun" <ekg-bosun> {}
+// project "ekg-carbon" <ekg-carbon> {}
+// project "engine-io" <engine-io/engine-io> {}
+// project "engine-io-snap" <engine-io/engine-io-snap> {}
+// project "exhaustive" <exhaustive> {}
+// project "json-assertions" <json-assertions> {}
+// project "libsystemd-journal" <libsystemd-journal> {}
+// project "network-carbon" <network-carbon> {}
+// project "socket-io" <engine-io/socket-io> {}
