@@ -20,4 +20,5 @@ in project "diff3" <diff3> {}
 // project "json-assertions" <json-assertions> {}
 // project "libsystemd-journal" <libsystemd-journal> {}
 // project "network-carbon" <network-carbon> {}
+// project "pipes-postgresql-simple" <pipes-postgresql-simple> {}
 // project "socket-io" <engine-io/socket-io> {}
