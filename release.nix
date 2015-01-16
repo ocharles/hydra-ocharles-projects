@@ -9,6 +9,7 @@ let
       engine-io = self.callPackage <engine-io/engine-io> {};
       engine-io-snap = self.callPackage <engine-io/engine-io-snap> {};
       exhaustive = self.callPackage <exhaustive> {};
+      json-assertions = self.callPackage <json-assertions> {};
       socket-io = self.callPackage <engine-io/socket-io> {};
     };
   };
@@ -21,6 +22,7 @@ in {
     engine-io
     engine-io-snap
     exhaustive
+    json-assertions
     socket-io
     ;
 }
