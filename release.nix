@@ -26,3 +26,9 @@ in project "diff3" <diff3> {}
 // project "tasty-ant-xml" <tasty-ant-xml> {}
 // project "tasty-rerun" <tasty-rerun> {}
 // project "socket-io" <engine-io/socket-io> {}
+// { nixpkgs-builds =
+       pkgs.buildEnv {
+         name = "nixpkgs-builds";
+         paths = with pkgs.haskellngPackages; [ diff3 ];
+       };
+   }
